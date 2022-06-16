@@ -1,8 +1,9 @@
 <?php
-   $servername = "Localhost";
-   $dbname = "donkey_travel";
-   $username = "root";
-   $password = "";
+
+$servername = "Localhost";
+$dbname = "donkey_travel";
+$username = "root";
+$password = "";
 
 try
 {
@@ -14,4 +15,5 @@ catch (PDOException $e)
 {
     echo " Connectie is MISLUKT: " . $e->getMessage();
 }
+
 ?>

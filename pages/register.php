@@ -3,26 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Registration</title>
+        <title>Register | Donkey Travel</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
-    <!--
-        Data base layout
-        users
-    id INT(11)
-    name VARCHAR(50)
-    email VARCHAR(100)
-    phone VARCHAR(20)
-    password VARCHAR(100)
-    edited TIMESTAMP
-    Indexes
-    bookings
-    id INT(11)
-    StartDate DATE
-    PINCode INT(11)
-    FKusers INT(11)
-    Indexes
-     -->
+    <!-- Register form -->
     <body>
         <div class="container">
             <div class="header">

@@ -11,9 +11,8 @@ session_start();
     {
         // User is logged in
         // Log out the user
-        // Unset the user_id session variable
-        unset($_SESSION['user_id']);
-        unset($_SESSION['name']);
+        // Destroy session
+        session_destroy();
         // Redirect to login page
         header("Location: login.php");
     }

@@ -4,27 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login | Donkey Travel</title>
 </head>
 <body>
     <!-- Login form -->
-    <!--
-        Data base layout
-        users
-    id INT(11)
-    name VARCHAR(50)
-    email VARCHAR(100)
-    phone VARCHAR(20)
-    password VARCHAR(100)
-    edited TIMESTAMP
-    Indexes
-    bookings
-    id INT(11)
-    StartDate DATE
-    PINCode INT(11)
-    FKusers INT(11)
-    Indexes
-     -->
     <div class="container">
         <div class="header">
             <h1>Login</h1>
@@ -81,6 +64,7 @@
             // Set the session
             $_SESSION['user_id'] = $user_id;
             $_SESSION['name'] = $row['name'];
+            $_SESSION['email'] = $row['email'];
 
             // Redirect to the dashboard
             header("Location: home.php");
