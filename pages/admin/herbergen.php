@@ -30,12 +30,11 @@
             <p>Welcome <?php echo $_SESSION['name']; ?>!</p>
             <p>You are logged in as <?php echo $_SESSION['email']; ?>.</p>
 
-            <p><a href="bookings.php">Boekingen</a> <strong>Beheer</strong></p>
+            <p><a href="../bookings.php">Boekingen</a> <strong>Beheer</strong></p>
             <p><a href="gasten.php">Gasten</a> <strong>Herbergen</strong> <a href="restaurants.php">Restaurants</a> <a href="tochten.php">Tochten</a> <a href="statussen.php">Statussen</a></p>
 
             <table>
                 <tr>
-                    <th>ID</th>
                     <th>Naam</th>
                     <th>Adres</th>
                     <th>E-Mail</th>
@@ -55,7 +54,6 @@
                     {
                         // Print out herberg
                         echo "<tr>";
-                        echo "<td>" . $herberg['id'] . "</td>";
                         echo "<td>" . $herberg['naam'] . "</td>";
                         echo "<td>" . $herberg['adres'] . "</td>";
                         echo "<td>" . $herberg['email'] . "</td>";

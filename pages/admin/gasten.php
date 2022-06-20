@@ -30,14 +30,13 @@
             <p>Welcome <?php echo $_SESSION['name']; ?>!</p>
             <p>You are logged in as <?php echo $_SESSION['email']; ?>.</p>
 
-            <p><a href="bookings.php">Boekingen</a> <strong>Beheer</strong></p>
+            <p><a href="../bookings.php">Boekingen</a> <strong>Beheer</strong></p>
             <p><strong>Gasten</strong> <a href="herbergen.php">Herbergen</a> <a href="restaurants.php">Restaurants</a> <a href="tochten.php">Tochten</a> <a href="statussen.php">Statussen</a></p>
 
             <table>
                 <tr>
-                    <th>ID</th>
                     <th>Naam</th>
-                    <th>Email</th>
+                    <th>E-mail</th>
                     <th>Telefoonnummer</th>
                 </tr>
                 <?php
@@ -53,7 +52,6 @@
                     {
                         // Print out user
                         echo "<tr>";
-                        echo "<td>" . $user['id'] . "</td>";
                         echo "<td>" . $user['name'] . "</td>";
                         echo "<td>" . $user['email'] . "</td>";
                         echo "<td>" . $user['phone'] . "</td>";

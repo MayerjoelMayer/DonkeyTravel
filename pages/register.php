@@ -22,6 +22,8 @@
                     <input type="text" name="phone" id="phone" required>
                     <label for="password">Password:</label>
                     <input type="password" name="password" id="password" required>
+                    <label for="password2">Confirm password:</label>	
+                    <input type="password" name="password2" id="password2" required>
                     <input type="submit" value="Register">
                 </form>
             </div>
@@ -48,30 +50,41 @@
     }
 
     // Registration backend
-    if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['password']))
+    if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['password']) && isset($_POST['password2']))
     {
         $name = $_POST['name'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
-        // hash the password
+        // hash the passwords
         $password = hash('sha256', $_POST['password']);
+        $password2 = hash('sha256', $_POST['password2']);
 
-        // Check if the user already exists
-        $sql = "SELECT * FROM users WHERE email = '$email'";
-        $result = $conn->query($sql);
-        if ($result->rowCount() > 0)
+        // Check if passwords match
+        if ($password != $password2)
         {
-            echo "User already exists";
+            // Redirect to register page with the error message displayed to the user with an echo
+            echo "Wachtwoorden komen niet overeen";
+            
         }
         else
         {
-            // Insert the user into the database
-            $sql = "INSERT INTO users (name, email, phone, password) VALUES ('$name', '$email', '$phone', '$password')";
+            // Check if the user already exists
+            $sql = "SELECT * FROM users WHERE email = '$email'";
             $result = $conn->query($sql);
-            if ($result)
+            if ($result->rowCount() > 0)
             {
-                // redirect to the login page
-                header("Location: login.php");
+                echo "User already exists";
+            }
+            else
+            {
+                // Insert the user into the database
+                $sql = "INSERT INTO users (name, email, phone, password) VALUES ('$name', '$email', '$phone', '$password')";
+                $result = $conn->query($sql);
+                if ($result)
+                {
+                    // redirect to the login page
+                    header("Location: login.php");
+                }
             }
         }
     }
