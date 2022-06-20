@@ -51,7 +51,7 @@
 
         // Check if the user is in the database
         $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
-        echo $sql;	// for debugging purposes
+        //echo $sql;	// for debugging purposes
         $result = $conn->query($sql);
 
         if ($result->rowCount() > 0)
