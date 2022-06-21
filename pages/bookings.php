@@ -44,21 +44,21 @@
                     <th>Telefoonnummer</th>
                 </tr>
                 <?php
-                    // Read out all users from table "users" in PDO
-                    $sql = $conn->prepare("SELECT * FROM users");
+                    // Read out all bookings from table "bookings" in PDO
+                    $sql = $conn->prepare("SELECT * FROM bookings");
                     $sql->execute();
 
-                    // Fetch all users from database
-                    $users = $sql->fetchAll();
+                    // Fetch all bookings from database
+                    $bookings = $sql->fetchAll();
 
-                    // Loop through all users
-                    foreach ($users as $user)
+                    // Loop through all bookings
+                    foreach ($bookings as $booking)
                     {
                         // Print out user
                         echo "<tr>";
-                        echo "<td>" . $user['name'] . "</td>";
-                        echo "<td>" . $user['email'] . "</td>";
-                        echo "<td>" . $user['phone'] . "</td>";
+                        echo "<td>" . $booking['name'] . "</td>";
+                        echo "<td>" . $booking['email'] . "</td>";
+                        echo "<td>" . $booking['phone'] . "</td>";
                         echo "</tr>";
                     }
                 ?>
