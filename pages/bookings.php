@@ -11,6 +11,12 @@
         // Redirect to login page
         header("Location: login.php");
     }
+    else if ($_SESSION['rechten'] == 2)
+    {
+        // User is logged in, but as an admin
+        // Redirect to admin home page
+        header("Location: admin/home.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +62,8 @@
                     {
                         // Print out user
                         echo "<tr>";
-                        echo "<td>" . $booking['name'] . "</td>";
+                        echo "<td>" . $booking['StartDate'] . "</td>";
+                        echo "<td>" . $booking['StartDate'] . "</td>";
                         echo "<td>" . $booking['email'] . "</td>";
                         echo "<td>" . $booking['phone'] . "</td>";
                         echo "</tr>";

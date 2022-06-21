@@ -1,6 +1,6 @@
 <?php
     // connect to the database
-    require_once "connect.php";
+    require_once "../connect.php";
 
     session_start();
 
@@ -10,6 +10,12 @@
         // User is not logged in
         // Redirect to login page
         header("Location: login.php");
+    }
+    else if ($_SESSION['rechten'] == 1)
+    {
+        // User is logged in, but not as an admin
+        // Redirect to admin home page
+        header("Location: ../home.php");
     }
 ?>
 
@@ -24,7 +30,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Home</h1>
+            <h1>Admin</h1>
         </div>
         <div class="content">
             <p>Welkom, <?php echo $_SESSION['name']; ?>!<br>

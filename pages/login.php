@@ -65,6 +65,7 @@
             $_SESSION['user_id'] = $user_id;
             $_SESSION['name'] = $row['name'];
             $_SESSION['email'] = $row['email'];
+            $_SESSION['rechten'] = $row['rechten_id'];
 
             // Redirect to the dashboard
             header("Location: home.php");

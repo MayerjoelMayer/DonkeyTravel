@@ -78,7 +78,7 @@
             else
             {
                 // Insert the user into the database
-                $sql = "INSERT INTO users (name, email, phone, password) VALUES ('$name', '$email', '$phone', '$password')";
+                $sql = "INSERT INTO users (name, email, phone, password, rechten_id) VALUES ('$name', '$email', '$phone', '$password', '1')";
                 $result = $conn->query($sql);
                 if ($result)
                 {

@@ -9,7 +9,7 @@
     {
         // User is not logged in
         // Redirect to login page
-        header("Location: ../login.php");
+        header("Location: login.php");
     }
     else if ($_SESSION['rechten'] == 1)
     {
@@ -25,7 +25,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Gasten | Donkey Travel</title>
+    <title>Boekingen | Donkey Travel</title>
 </head>
 <body>
     <div class="container">
@@ -36,37 +36,42 @@
             <p>Welcome <?php echo $_SESSION['name']; ?>!</p>
             <p>You are logged in as <?php echo $_SESSION['email']; ?>.</p>
 
-            <p><a href="bookings.php">Boekingen</a> <strong>Beheer</strong></p>
-            <p><strong>Gasten</strong> <a href="herbergen.php">Herbergen</a> <a href="restaurants.php">Restaurants</a> <a href="tochten.php">Tochten</a> <a href="statussen.php">Statussen</a></p>
+            <p><strong>Boekingen</strong> <a href="admin.php">Beheer</a></p>
 
             <table>
                 <tr>
-                    <th>Naam</th>
+                    <th>Startdatum</th>
+                    <th>Einddatum</th>
+                    <th>Status</th>
+                    <th>PIN code</th>
+                    <th>Klantnaam</th>
+                    <th>Tocht</th>
                     <th>E-mail</th>
                     <th>Telefoonnummer</th>
                 </tr>
                 <?php
-                    // Read out all users from table "users" in PDO
-                    $sql = $conn->prepare("SELECT * FROM users");
+                    // Read out all bookings from table "bookings" in PDO
+                    $sql = $conn->prepare("SELECT * FROM bookings");
                     $sql->execute();
 
-                    // Fetch all users from database
-                    $users = $sql->fetchAll();
+                    // Fetch all bookings from database
+                    $bookings = $sql->fetchAll();
 
-                    // Loop through all users
-                    foreach ($users as $user)
+                    // Loop through all bookings
+                    foreach ($bookings as $booking)
                     {
                         // Print out user
                         echo "<tr>";
-                        echo "<td>" . $user['name'] . "</td>";
-                        echo "<td>" . $user['email'] . "</td>";
-                        echo "<td>" . $user['phone'] . "</td>";
+                        echo "<td>" . $booking['StartDate'] . "</td>";
+                        echo "<td>" . $booking['StartDate'] . "</td>";
+                        echo "<td>" . $booking['email'] . "</td>";
+                        echo "<td>" . $booking['phone'] . "</td>";
                         echo "</tr>";
                     }
                 ?>
             </table>
 
-            <p><a href="../logout.php">Logout</a></p>
+            <p><a href="logout.php">Logout</a></p>
         </div>
     </div>
 </body>

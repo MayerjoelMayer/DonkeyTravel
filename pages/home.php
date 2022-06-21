@@ -11,6 +11,12 @@
         // Redirect to login page
         header("Location: login.php");
     }
+    else if ($_SESSION['rechten'] == 2)
+    {
+        // User is logged in, but as an admin
+        // Redirect to admin home page
+        header("Location: admin/home.php");
+    }
 ?>
 
 <!DOCTYPE html>
