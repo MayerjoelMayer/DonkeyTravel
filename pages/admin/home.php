@@ -38,7 +38,7 @@
 
             <p><a href="bookings.php">Boekingen</a> <a href="admin.php">Beheer</a></p>
 
-            <p><a href="logout.php">Logout</a></p>
+            <p><a href="../logout.php">Logout</a></p>
         </div>
 
 </body>

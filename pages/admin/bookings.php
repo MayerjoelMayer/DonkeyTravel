@@ -71,7 +71,7 @@
                 ?>
             </table>
 
-            <p><a href="logout.php">Logout</a></p>
+            <p><a href="../logout.php">Logout</a></p>
         </div>
     </div>
 </body>

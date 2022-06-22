@@ -25,7 +25,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boekingen | Donkey Travel</title>
+    <title>Boekingen | My Donkey Travel</title>
 </head>
 <body>
     <div class="container">
@@ -33,7 +33,7 @@
             <h1>Boekingen</h1>
         </div>
         <div class="content">
-            <p>Welcome <?php echo $_SESSION['name']; ?>!</p>
+            <p>Welkom, <?php echo $_SESSION['name']; ?>!</p>
             <p>You are logged in as <?php echo $_SESSION['email']; ?>.</p>
 
             <p><strong>Boekingen</strong> <a href="admin.php">Beheer</a></p>
@@ -42,12 +42,9 @@
                 <tr>
                     <th>Startdatum</th>
                     <th>Einddatum</th>
-                    <th>Status</th>
                     <th>PIN code</th>
-                    <th>Klantnaam</th>
                     <th>Tocht</th>
-                    <th>E-mail</th>
-                    <th>Telefoonnummer</th>
+                    <th>Status</th>
                 </tr>
                 <?php
                     // Read out all bookings from table "bookings" in PDO
@@ -63,9 +60,7 @@
                         // Print out user
                         echo "<tr>";
                         echo "<td>" . $booking['StartDate'] . "</td>";
-                        echo "<td>" . $booking['StartDate'] . "</td>";
-                        echo "<td>" . $booking['email'] . "</td>";
-                        echo "<td>" . $booking['phone'] . "</td>";
+                        echo "<td>" . $booking['FKtochtenID'] . "</td>";
                         echo "</tr>";
                     }
                 ?>

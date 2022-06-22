@@ -39,7 +39,7 @@
             <p><a href="bookings.php">Boekingen</a> <strong>Beheer</strong></p>
             <p><a href="gasten.php">Gasten</a> <a href="herbergen.php">Herbergen</a> <a href="restaurants.php">Restaurants</a> <a href="tochten.php">Tochten</a> <a href="statussen.php">Statussen</a></p>
 
-            <p><a href="logout.php">Logout</a></p>
+            <p><a href="../logout.php">Logout</a></p>
         </div>
     </div>
 </body>
