@@ -27,10 +27,11 @@ foreach ($result as $row){
     <thead>
     <tr>
         <th scope="col">ID</th>
-        <th scope="col">Omschrijving</th>
-        <th scope="col">Route</th>
-        <th scope="col">Aantal dagen</th>
-        <th scope="col">Action</th>
+        <th scope="col">StartDate</th>
+        <th scope="col">PINCode</th>
+        <th scope="col">FKusersID</th>
+        <th scope="col">FKtochtenID</th>
+        <th scope="col">FKstatussenID</th>
     </tr>
     </thead>
     <tbody>
@@ -42,12 +43,12 @@ foreach ($result as $row){
         <td><?php echo $row['FKtochtenID']; ?></td>
         <td><?php echo $row['FKstatussenID']; ?></td>
         <td>
-            <a href="../Pages/Tocht_Edit.php?id=<?php echo $row['id']; ?>">
+            <a href="update-booking.php?id=<?php echo $row['id']; ?>">
                 <button class="btn btn-warning">
                     Bewerken
                 </button>
             </a>
-            <a href="../Pages/Tocht_Delete.php?id=<?php echo $row['id']; ?>">
+            <a href="delete-booking1.php?id=<?php echo $row['id']; ?>">
                 <button class="btn btn-danger">
                     Verwijderen
                 </button>
