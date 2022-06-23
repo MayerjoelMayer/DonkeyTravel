@@ -1,22 +1,30 @@
 <?php
-     // gar-connect.php
-    // maakt een connectie met de database 'garage'
-   // Anjo Eijeriks
-   $servername = "Localhost";
-   $dbname = "donkey_travel";
-   $username = "root";
-   $password = "";
-
-try {
-    $conn = new PDO("mysql:host=$servername;
- dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE,
-        PDO::ERRMODE_EXCEPTION);
-    echo " Connect is gelukt !<br>";
-}
-catch (PDOException $e)
+class connect
 {
-    echo " Connectie is MISLUKT: " . $e->getMessage();
+    
+    private $host = "localhost";
+    private $user = "root";
+    private $pass = "";
+    private $dbname = "donkey_travel";
+    public function connect()
+    {
+        $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
+        $pdo = new PDO($dsn, $this->user, $this->pass);
+        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        if ($pdo) {
+            return $pdo;
+        } else {
+            echo "Connection failed";
+        }
+    }
+    public function getBooking()
+    {
+        $sql = "SELECT * FROM bookings";
+        $result = $this->connect()->query($sql);
+        return $result;
+    }
+    
 }
-?>
 
+
+    

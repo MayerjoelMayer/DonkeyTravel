@@ -14,32 +14,50 @@
 <?php
 // tabel uitlezen en netjes afdrukken -------------------------------
 require_once "connect.php";
+$Booking = new connect();
+$result = $Booking->getBooking();
 
-$booking = $conn->prepare("
-                                     select   id,
-                                     StartDate,
-                                     PINCode,
-                                     FKusersID,
-                                     FKtochtenID,
-                                     FKstatussenID,
-                                     from     bookings
-                                     
-                                     ");
-$booking->execute();
-$data = $booking->fetchAll();
 
 echo "<table>";
-foreach ($data as $booking)
+
+foreach ($result as $row){
+    ?>
     echo "<tr>";
-echo "<td>"   .    $booking["id"] . "</td>";
-echo "<td>"   .    $booking["StartDate"]         . "</td>";
-echo "<td>"   .    $booking["PINCode"]    . "</td>";
-echo "<td>"   .    $booking["FKusersID"]    . "</td>";
-echo "<td>"   .    $booking["FKtochtenID"]    . "</td>";
-echo "<td>"   .    $booking["FKstatussenID"]    . "</td>";
-echo "</tr>";
-echo "</table>";
-echo "<a href='hoofd.html'> terug naar het menu </a>";
+    <table class="table table-striped table-dark ">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Omschrijving</th>
+        <th scope="col">Route</th>
+        <th scope="col">Aantal dagen</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><?php echo $row['id']; ?></td>
+        <td><?php echo $row['StartDate']; ?></td>
+        <td><?php echo $row['PINCode']; ?></td>
+        <td><?php echo $row['FKusersID']; ?></td>
+        <td><?php echo $row['FKtochtenID']; ?></td>
+        <td><?php echo $row['FKstatussenID']; ?></td>
+        <td>
+            <a href="../Pages/Tocht_Edit.php?id=<?php echo $row['id']; ?>">
+                <button class="btn btn-warning">
+                    Bewerken
+                </button>
+            </a>
+            <a href="../Pages/Tocht_Delete.php?id=<?php echo $row['id']; ?>">
+                <button class="btn btn-danger">
+                    Verwijderen
+                </button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<?php
+}
 ?>
 </body>
 </html>
