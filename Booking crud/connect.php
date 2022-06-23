@@ -3,7 +3,7 @@
     // maakt een connectie met de database 'garage'
    // Anjo Eijeriks
    $servername = "Localhost";
-   $dbname = "DonkeyTravel";
+   $dbname = "donkey_travel";
    $username = "root";
    $password = "";
 

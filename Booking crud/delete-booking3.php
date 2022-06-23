@@ -1,32 +1,32 @@
 <!doctype html>
 <html lang="nl">
 <head>
-    <meta name="author" content="Anjo Eijeriks">
+    <meta name="author" content="project">
     <meta charset="UTF-8">
-    <title>delete-HireDonkey3.php</title>
+    <title>delete-booking3.php</title>
 </head>
 <body>
-<h1>Delete HireDonkey 3</h1>
+<h1>Delete booking 3</h1>
 <p>
-    op DonkeyAppointment gegevens zoeken uit de
-    tabel Appointments van de datebase DonkeyTravel
+    op booking gegevens zoeken uit de
+    tabel bookings van de datebase donkey_travel
     zodat ze verwijderd kunnen worden.
 </p>
 <?php
 // gegevens uit de formulier halen -------------------------------------------
-$appointmentid       = $_POST["appointmentidvak"];
+$id       = $_POST["idvak"];
 $verwijderen   = $_POST["verwijdervak"];
 
-//autogegevns verwijderen ---------------------------------------------------
+//bookinggegevens verwijderen ---------------------------------------------------
 if ($verwijderen)
 {
     require_once "connect.php";
 
     $sql = $conn->prepare("
-                                      delete from DonkeyAppointment
-                                      where appointmentid = :appointmentid
+                                      delete from bookings
+                                      where id = :id
                                     ");
-    $sql->execute(["appointmentid" => $appointmentid]);
+    $sql->execute(["id" => $id]);
 
     echo "De gegevens zijn verwijderd. <br />";
 }
