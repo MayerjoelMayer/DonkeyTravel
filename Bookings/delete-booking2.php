@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="nl">
 <head>
-    <meta name="author" content="Anjo Eijeriks">
+    <meta name="author" content="project">
     <meta charset="UTF-8">
     <title>delete-booking2.php</title>
 </head>

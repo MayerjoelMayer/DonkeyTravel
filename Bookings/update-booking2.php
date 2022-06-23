@@ -9,7 +9,7 @@
 <h1>Update booking 2</h1>
 <p>
     Dit formulier wordt gebruikt om bookinggegevens te wijzegen
-    in de tabel autos van de database garage.
+    in de tabel bookings van de database donkey_travel.
 </p>
 <?php
 // id uit de formulier halen -----------------------------------
