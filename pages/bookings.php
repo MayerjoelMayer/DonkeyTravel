@@ -17,6 +17,11 @@
         // Redirect to admin home page
         header("Location: admin/home.php");
     }
+
+    function calculateEndDate($booking,$tocht)
+    {
+        return date('Y-m-d', strtotime($booking['StartDate'] . ' + ' . $tocht['aantaldagen'] . ' days'));
+    }
 ?>
 
 <!DOCTYPE html>
@@ -57,10 +62,27 @@
                     // Loop through all bookings
                     foreach ($bookings as $booking)
                     {
+                        // Read out all tochten from table "tochten" in PDO
+                        $sql = $conn->prepare("SELECT * FROM tochten WHERE id =  " . $booking['FKtochtenID']);
+                        $sql->execute();
+
+                        // Fetch tocht from database
+                        $tocht = $sql->fetch();
+                        
+                        // Read out all statussen from table "status" in PDO
+                        $sql = $conn->prepare("SELECT * FROM statussen WHERE id = " . $booking['FKstatussenID']);
+                        $sql->execute();
+
+                        // Fetch status from database
+                        $status = $sql->fetch();
+
                         // Print out user
                         echo "<tr>";
                         echo "<td>" . $booking['StartDate'] . "</td>";
-                        echo "<td>" . $booking['FKtochtenID'] . "</td>";
+                        echo "<td>" . calculateEndDate($booking,$tocht) . "</td>";
+                        echo "<td>" . $booking['PINCode'] . "</td>";
+                        echo "<td>" . $tocht['omschrijving'] . "</td>";
+                        echo "<td>" . $status['status'] . "</td>";
                         echo "</tr>";
                     }
                 ?>
