@@ -17,6 +17,15 @@
         // Redirect to admin home page
         header("Location: ../home.php");
     }
+
+    // Display error message if there is one
+    if (isset($_GET['error']))
+    {
+        if ($_GET['error'] == 1)
+        {
+            echo "<script>alert('Deze tocht is nog in gebruik door een booking. Verwijder deze booking eerst.');</script>";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -70,6 +79,8 @@
                         echo "<td>" . $tocht['omschrijving'] . "</td>";
                         echo "<td>" . $tocht['route'] . "</td>";
                         echo "<td>" . $tocht['aantaldagen'] . "</td>";
+                        echo "<td><button onclick=\"location.href='tochten_edit.php?id=" . $tocht['id'] . "'\">Bewerken</button>";
+                        echo "<button onclick=\"location.href='tochten_delete.php?id=" . $tocht['id'] . "'\">Verwijderen</button></td>";
                         echo "</tr>";
                     }
                 ?>

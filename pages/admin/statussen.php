@@ -53,6 +53,7 @@
                     <th>Status</th>
                     <th>Verwijderbaar</th>
                     <th>PIN toekennen</th>
+                    <th><button onclick="location.href='statussen_create.php'">Nieuwe status</button></th>
                 </tr>
                 <?php
                     // Read out all locations from table "herbergen" in PDO
@@ -69,8 +70,13 @@
                         echo "<tr>";
                         echo "<td>" . $status['statuscode'] . "</td>";
                         echo "<td>" . $status['status'] . "</td>";
-                        echo "<td>" . $status['verwijderbaar'] . "</td>";
-                        echo "<td>" . $status['PINtoekennen'] . "</td>";
+                        // Change numbers to boolean
+                        if ($status['verwijderbaar'] == 1)
+                        { echo "<td>Ja</td>"; } else { echo "<td>Nee</td>";}
+                        if ($status['PINtoekennen'] == 1)
+                        { echo "<td>Ja</td>"; } else { echo "<td>Nee</td>";}
+                        echo "<td><button onclick=\"location.href='statussen_edit.php?id=" . $status['id'] . "'\">Bewerken</button>";
+                        echo "<button onclick=\"location.href='statussen_delete.php?id=" . $status['id'] . "'\">Verwijderen</button></td>";
                         echo "</tr>";
                     }
                 ?>
