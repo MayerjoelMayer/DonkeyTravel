@@ -26,7 +26,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/style.css">
-    <title>Admin - Herbergen | Donkey Travel</title>
+    <title>Admin - Tochten | Donkey Travel</title>
 </head>
 <body>
     <div class="container">
@@ -52,6 +52,7 @@
                     <th>Omschrijving</th>
                     <th>Route</th>
                     <th>Aantal dagen</th>
+                    <th><button onclick="location.href='tochten_create.php'">Nieuwe tocht</button></th>
                 </tr>
                 <?php
                     // Read out all locations from table "herbergen" in PDO

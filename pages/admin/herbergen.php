@@ -46,7 +46,6 @@
             <button onclick="location.href='restaurants.php'">Restaurants</button>
             <button onclick="location.href='tochten.php'">Tochten</button>
             <button onclick="location.href='statussen.php'">Statussen</button>
-
             <table>
                 <tr>
                     <th>Naam</th>
@@ -54,6 +53,7 @@
                     <th>E-Mail</th>
                     <th>Telefoonnummer</th>
                     <th>Coordinaten</th>
+                    <th><button onclick="location.href='herberg_create.php'">Nieuwe herberg</button></th>
                 </tr>
                 <?php
                     // Read out all locations from table "herbergen" in PDO
@@ -73,6 +73,8 @@
                         echo "<td>" . $herberg['email'] . "</td>";
                         echo "<td>" . $herberg['telefoon'] . "</td>";
                         echo "<td>" . $herberg['coordinaten'] . "</td>";
+                        echo "<td><button onclick=\"location.href='herberg_edit.php?id=" . $herberg['id'] . "'\">Bewerken</button>";
+                        echo "<button onclick=\"location.href='herberg_delete.php?id=" . $herberg['id'] . "'\">Verwijderen</button></td>";
                         echo "</tr>";
                     }
                 ?>
