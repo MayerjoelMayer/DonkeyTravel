@@ -17,6 +17,14 @@
         // Redirect to admin home page
         header("Location: ../home.php");
     }
+    // Display error message if there is one
+    if (isset($_GET['error']))
+    {
+        if ($_GET['error'] == 1)
+        {
+            echo "<script>alert('Deze tocht is nog in gebruik door een booking. Verwijder deze booking eerst.');</script>";
+        }
+    }
 ?>
 
 <!DOCTYPE html>

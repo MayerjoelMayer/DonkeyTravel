@@ -21,11 +21,25 @@
     // get the id from the url
     $id = $_GET['id'];
 
-    // Delete the booking from the database
-    $sql = $conn->prepare("DELETE FROM statussen WHERE id = $id");
+    // Check if tocht id is used in bookings
+    $sql = $conn->prepare("SELECT * FROM bookings WHERE FKstatussenID = $id");
     $sql->execute();
+    $bookings = $sql->fetchAll();
 
-    // Redirect to the bookings page once deleted
-    header("Location: statussen.php");
+    if (count($bookings) > 0)
+    {
+        // There are bookings with this tocht id
+        // Redirect to tochten page with error message
+        header("Location: statussen.php?error=1");
+    }
+    else
+    {
+        // Delete the tocht from the database
+        $sql = $conn->prepare("DELETE FROM statussen WHERE id = $id");
+        $sql->execute();
+
+        // Redirect to the tochten page once deleted
+        header("Location: statussen.php");
+    }
 
 ?>
