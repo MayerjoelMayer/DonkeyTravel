@@ -25,6 +25,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Home | My Donkey Travel</title>
 </head>
 <body>
@@ -36,10 +37,15 @@
             <p>Welkom, <?php echo $_SESSION['name']; ?>!</p>
             <p>You are logged in as <?php echo $_SESSION['email']; ?>.</p>
 
-            <p><a href="bookings.php">Boekingen</a> <a href="#">Account</a></p>
-
-            <p><a href="logout.php">Logout</a></p>
+            <button onclick="location.href='bookings.php'">Boekingen</button>
+            <button onclick="location.href='account.php'">Account</button>
+            <br><br>
+            <button onclick="location.href='logout.php'">Log uit</button>
         </div>
 
 </body>
 </html>
+
+<?php
+
+echo $_SESSION['user_id'];

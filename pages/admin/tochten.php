@@ -25,6 +25,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
     <title>Admin - Herbergen | Donkey Travel</title>
 </head>
 <body>
@@ -36,8 +37,15 @@
             <p>Welcome <?php echo $_SESSION['name']; ?>!</p>
             <p>You are logged in as <?php echo $_SESSION['email']; ?>.</p>
 
-            <p><a href="bookings.php">Boekingen</a> <strong>Beheer</strong></p>
-            <p><a href="gasten.php">Gasten</a> <a href="herbergen.php">Herbergen</a> <a href="restaurants.php">Restaurants</a> <strong>Tochten</strong> <a href="statussen.php">Statussen</a></p>
+            <button onclick="location.href='bookings.php'">Boekingen</button>
+            <button>Beheer</button>
+            <br>
+            <br>
+            <button onclick="location.href='gasten.php'">Gasten</button>
+            <button onclick="location.href='herbergen.php'">Herbergen</button>
+            <button onclick="location.href='restaurants.php'">Restaurants</button>
+            <button>Tochten</button>
+            <button onclick="location.href='statussen.php'">Statussen</button>
 
             <table>
                 <tr>
@@ -65,8 +73,8 @@
                     }
                 ?>
             </table>
-
-            <p><a href="../logout.php">Logout</a></p>
+            <br>
+            <button onclick="location.href='../logout.php'">Log uit</button>
         </div>
     </div>
 </body>

@@ -9,10 +9,10 @@ class connect
     public function connect()
     {
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
-        $pdo = new PDO($dsn, $this->user, $this->pass);
-        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        if ($pdo) {
-            return $pdo;
+        $conn = new PDO($dsn, $this->user, $this->pass);
+        $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        if ($conn) {
+            return $conn;
         } else {
             echo "Connection failed";
         }

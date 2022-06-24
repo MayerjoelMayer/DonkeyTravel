@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Register | Donkey Travel</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
     </head>
     <!-- Register form -->
     <body>
@@ -14,21 +14,22 @@
             </div>
             <div class="content">
                 <form action="register.php" method="post">
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" id="name" required>
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" required>
-                    <label for="phone">Phone:</label>
-                    <input type="text" name="phone" id="phone" required>
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" required>
-                    <label for="password2">Confirm password:</label>	
-                    <input type="password" name="password2" id="password2" required>
+                    <label for="name"><strong>Name</strong></label><br>
+                    <input type="text" name="name" id="name" required><br><br>
+                    <label for="email"><strong>E-mail</strong></label><br>
+                    <input type="email" name="email" id="email" required><br><br>
+                    <label for="phone"><strong>Phone</strong></label><br>
+                    <input type="text" name="phone" id="phone" required><br><br>
+                    <label for="password"><strong>Password</strong></label><br>
+                    <input type="password" name="password" id="password" required><br><br>
+                    <label for="password2"><strong>Confirm password</strong></label>	<br>
+                    <input type="password" name="password2" id="password2" required><br><br>
                     <input type="submit" value="Register">
                 </form>
             </div>
         </div>
-        <a href="login.php">Already have an account?</a>
+        <br>
+        <button onclick="location.href='login.php'">Already have an account?</button>
     </body>
 
 

@@ -30,6 +30,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Boekingen | My Donkey Travel</title>
 </head>
 <body>
@@ -41,8 +42,9 @@
             <p>Welkom, <?php echo $_SESSION['name']; ?>!</p>
             <p>You are logged in as <?php echo $_SESSION['email']; ?>.</p>
 
-            <p><strong>Boekingen</strong> <a href="admin.php">Beheer</a></p>
-
+            <button>Boekingen</button>
+            <button onclick="location.href='account.php'">Account</button>
+            <br><br>
             <table>
                 <tr>
                     <th>Startdatum</th>
@@ -50,10 +52,11 @@
                     <th>PIN code</th>
                     <th>Tocht</th>
                     <th>Status</th>
+                    <th><button onclick="location.href='bookings_create.php'">Nieuwe boeking</button></th>
                 </tr>
                 <?php
                     // Read out all bookings from table "bookings" in PDO
-                    $sql = $conn->prepare("SELECT * FROM bookings");
+                    $sql = $conn->prepare("SELECT * FROM bookings WHERE FKusersID = " . $_SESSION['user_id']);
                     $sql->execute();
 
                     // Fetch all bookings from database
@@ -63,7 +66,7 @@
                     foreach ($bookings as $booking)
                     {
                         // Read out all tochten from table "tochten" in PDO
-                        $sql = $conn->prepare("SELECT * FROM tochten WHERE id =  " . $booking['FKtochtenID']);
+                        $sql = $conn->prepare("SELECT * FROM tochten WHERE id = " . $booking['FKtochtenID']);
                         $sql->execute();
 
                         // Fetch tocht from database
@@ -80,15 +83,19 @@
                         echo "<tr>";
                         echo "<td>" . $booking['StartDate'] . "</td>";
                         echo "<td>" . calculateEndDate($booking,$tocht) . "</td>";
-                        echo "<td>" . $booking['PINCode'] . "</td>";
+                        // Don't show PIN if it is equal to 0
+                        if ($booking['PINCode'] == 0)
+                        { echo "<td></td>";} else { echo "<td>" . $booking['PINCode'] . "</td>"; }
                         echo "<td>" . $tocht['omschrijving'] . "</td>";
                         echo "<td>" . $status['status'] . "</td>";
+                        echo "<td><button onclick=\"location.href='bookings_edit.php?id=" . $booking['id'] . "'\">Bewerken</button>";
+                        echo "<button onclick=\"location.href='bookings_delete.php?id=" . $booking['id'] . "'\">Verwijderen</button></td>";
                         echo "</tr>";
                     }
                 ?>
             </table>
-
-            <p><a href="logout.php">Logout</a></p>
+            <br>
+            <button onclick="location.href='logout.php'">Log uit</button>
         </div>
     </div>
 </body>
